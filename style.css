@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #F5E9EB;
+    background-size: cover;
+}
+
+.upper {
+    width: 100vw;
+    height: 10vh;
+    min-height: 40px;
+    /* background-color: #c0bec1; */
+}
+.down {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    background-color: #F5E9EB;
+}
+.nav {
+    height: 10vh;
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+}
+.logo {
+    position: absolute;
+    background-color: red;
+    background: url('./Screenshot\ 2025-03-16\ 150701.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 8vh;
+    width: 260px;
+    min-height: 38px;
+    left: calc(50vw - 50px);
+    top: 1vh;
+}
+canvas {
+    background-color: white;
+    width: 100vw;
+    height: 90vh;
+    border-radius: 25px 25px 0 0;
+}
+.bar-sym {
+    min-height: 50px;
+    min-width: 50px;
+    text-align: center;
+    height: 10vh;
+    width: 10vh;
+    align-content: center;
+    max-width: 80px;
+}
+.bar-sym:hover {
+    background-color: white;
+    border-radius: 100%;
+}
+.side-menu {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: #F5E9EB;
+    width: 100px;
+    height: 90vh;
+    z-index: 100;
+    align-items: center;
+}
+.border{
+    background-color: #F5E9EB;
+    width: 100%;
+    height: 60px;
+    align-content: center;
+    text-align: center;
+    min-width: 50px;
+    min-height: 50px;
+}
+.border:hover {
+    background-color: rgb(255, 255, 255);
+    border-radius: 25%;
+}
+.canvas-wrapper {
+    position: relative;
+}
+.pallete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pallete-dropdown, .eraser-dropdown, .linewidth-dropdown {
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    left: 30px;
+    top: 30px;
+    background-color: #F5E9EB;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+}
+.pallete-colors {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+.eraser-size {
+    height: 40px;
+    width: 100px;
+    font-size: x-large;
+    text-align: center;
+    align-content: center;
+}
+.pencil-size {
+    width: 100px;
+    height: 40px;
+    font-size: x-large;
+    align-content: center;
+    text-align: center;
+}
+.eraser-size:hover, .pencil-size:hover{
+    background-color: white;
+    border-radius: 10px;
+}

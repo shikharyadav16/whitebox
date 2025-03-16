@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="upper">
+            <div class="nav">
+                <div class="bar-sym">
+                    <i class="fa fa-bars" aria-hidden="true" style="font-size: 28px;"></i>
+                    <i class="fa fa-times" style="font-size: 32px; display: none;"></i>
+                </div>
+                <div class="logo"></div>
+            </div>
+        </div>
+
+        <div class="down">
+            <div class="side-menu" style="display: none;">
+                <i class="fa fa-ban border" aria-hidden="true" style="font-size: 32px;"></i>
+                <div class="pallete border"><i class='fas fa-palette' style="font-size: 32px;  "></i>
+
+                </div>
+
+                <div class="pencil border"><i class="fas fa-pencil-alt" style="font-size: 32px;  "></i>
+
+                </div>
+                <div class="eraser-sym border">
+                    <i class="fa fa-eraser" style="font-size: 32px;"></i>
+
+                </div>
+
+                <div class="undo border"><i class="fas fa-undo" style="font-size: 32px; "></i></div>
+
+                <div class="redo border"><i class="fas fa-redo" style="font-size: 32px; "></i></div>
+            </div>
+            <div class="canvas-wrapper">
+                <canvas class="canvas"></canvas>
+                <div class="pallete-dropdown" style="display: none;">
+                    <div class="black pallete-colors" data-color="black" style="background-color: black;"></div>
+                    <div class="red pallete-colors" data-color="red" style="background-color: red;"></div>
+                    <div class="green pallete-colors" data-color="green" style="background-color: green;"></div>
+                    <div class="yellow pallete-colors" data-color="yellow" style="background-color: yellow;"></div>
+                    <div class="blue pallete-colors" data-color="blue" style="background-color: blue;"></div>
+                    <div class="purple pallete-colors" data-color="purple" style="background-color: purple;"></div>
+                </div>
+
+                <div class="eraser">
+                    <div class="eraser-dropdown" style="display: none;">
+                        <div class="eraser-size" data-size=8>Small</div>
+                        <div class="eraser-size" data-size=20>Medium</div>
+                        <div class="eraser-size" data-size=36>Large</div>
+                    </div>
+                </div>
+
+                <div class="linewidth-dropdown" style="display: none;">
+                    <div class="pencil-size" data-pencil=1>X-Small</div>
+                    <div class="pencil-size" data-pencil=2>Small</div>
+                    <div class="pencil-size" data-pencil=3>Medium</div>
+                    <div class="pencil-size" data-pencil=5>Large</div>
+                    <div class="pencil-size" data-pencil=8>X-Large</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
