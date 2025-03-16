@@ -39,7 +39,7 @@ body {
     height: 8vh;
     width: 260px;
     min-height: 38px;
-    left: calc(50vw - 50px);
+    left: calc(50vw - 100px);
     top: 1vh;
 }
 canvas {
