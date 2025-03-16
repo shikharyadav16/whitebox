@@ -71,15 +71,19 @@ document.addEventListener('keydown', (e) => {
 
 function addListeners() {
     canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('touchstart', startDrawing);
     canvas.addEventListener('mousemove', draw)
     canvas.addEventListener('mouseup', stopDrawing)
+    canvas.addEventListener('touchend', stopDrawing)
     canvas.addEventListener('mouseout', stopDrawing)
 }
 
 function removeListeners() {
     canvas.removeEventListener('mousedown', startDrawing);
+    canvas.addEventListener('touchstart', startDrawing);
     canvas.removeEventListener('mousemove', draw)
     canvas.removeEventListener('mouseup', stopDrawing)
+    canvas.addEventListener('touchend', stopDrawing)
     canvas.removeEventListener('mouseout', stopDrawing)
 }
 
@@ -105,6 +109,10 @@ handleResize();
 let flag = 0;
 let prevColor = 'black';
 
+window.addEventListener('resize',()=> {
+    window.location.reload();
+})
+
 function displayNone() {
     document.getElementsByClassName('eraser-dropdown')[0].style.display = 'none'
     document.getElementsByClassName('pallete-dropdown')[0].style.display = 'none';
@@ -118,7 +126,7 @@ document.getElementsByClassName('bar-sym')[0].addEventListener('click', () => {
         document.getElementsByClassName('fa-bars')[0].style.display = 'block'
         document.getElementsByClassName('fa-times')[0].style.display = 'none';
         document.getElementsByClassName('side-menu')[0].style.display = 'none';
-        document.getElementsByClassName('bar-sym')[0].style.background = '#cfcfcf'
+        document.getElementsByClassName('bar-sym')[0].style.background = '#F5E9EB'
         document.getElementsByClassName('bar-sym')[0].style.borderRadius = '100%'
         canvas.style.width = '100vw'
         displayNone();
@@ -140,7 +148,7 @@ Array.from(document.querySelectorAll('.fa-ban')).forEach((e) => {
             canvas.style.cursor = 'auto'
             addListeners();
             document.getElementsByClassName('fa-bars')[0].style.display = 'block'
-            document.getElementsByClassName('bar-sym')[0].style.background = '#cfcfcf'
+            document.getElementsByClassName('bar-sym')[0].style.background = '#F5E9EB'
             document.getElementsByClassName('bar-sym')[0].style.borderRadius = '100%'
             document.getElementsByClassName('fa-times')[0].style.display = 'none';
             document.getElementsByClassName('side-menu')[0].style.display = 'none';
@@ -149,7 +157,7 @@ Array.from(document.querySelectorAll('.fa-ban')).forEach((e) => {
         }
         displayNone();
         document.getElementsByClassName('fa-bars')[0].style.display = 'block'
-        document.getElementsByClassName('bar-sym')[0].style.background = '#cfcfcf'
+        document.getElementsByClassName('bar-sym')[0].style.background = '#F5E9EB'
         document.getElementsByClassName('bar-sym')[0].style.borderRadius = '100%'
         document.getElementsByClassName('fa-times')[0].style.display = 'none';
         document.getElementsByClassName('side-menu')[0].style.display = 'none';
@@ -162,10 +170,10 @@ Array.from(document.querySelectorAll('.fa-ban')).forEach((e) => {
 Array.from(document.querySelectorAll('.pallete')).forEach((e) => {
     e.addEventListener('click', (event) => {
         if (document.getElementsByClassName('pallete-dropdown')[0].style.display === 'none') {
+            displayNone();
             document.getElementsByClassName('pallete-dropdown')[0].style.display = 'flex';
             return;
         }
-        displayNone();
         document.getElementsByClassName('pallete-dropdown')[0].style.display = 'none';
         event.stopPropagation();
     })
@@ -173,9 +181,10 @@ Array.from(document.querySelectorAll('.pallete')).forEach((e) => {
 
 Array.from(document.querySelectorAll('.pallete-colors')).forEach((Element) => {
     Element.addEventListener('click', (event) => {
+        canvas.style.cursor = 'auto';
         addListeners();
         document.getElementsByClassName('fa-bars')[0].style.display = 'block'
-        document.getElementsByClassName('bar-sym')[0].style.background = '#cfcfcf'
+        document.getElementsByClassName('bar-sym')[0].style.background = '#F5E9EB'
         document.getElementsByClassName('bar-sym')[0].style.borderRadius = '100%'
         document.getElementsByClassName('fa-times')[0].style.display = 'none'
         document.getElementsByClassName('side-menu')[0].style.display = 'none';
@@ -210,8 +219,9 @@ Array.from(document.querySelectorAll('.pencil')).forEach((e) => {
 
 Array.from(document.querySelectorAll('.pencil-size')).forEach((Element) => {
     Element.addEventListener('click', (event) => {
+        canvas.style.cursor = 'auto';
         document.getElementsByClassName('fa-bars')[0].style.display = 'block'
-        document.getElementsByClassName('bar-sym')[0].style.background = '#cfcfcf'
+        document.getElementsByClassName('bar-sym')[0].style.background = '#F5E9EB'
         document.getElementsByClassName('bar-sym')[0].style.borderRadius = '100%'
         document.getElementsByClassName('fa-times')[0].style.display = 'none'
         document.getElementsByClassName('side-menu')[0].style.display = 'none';
@@ -224,11 +234,12 @@ Array.from(document.querySelectorAll('.pencil-size')).forEach((Element) => {
 
 Array.from(document.querySelectorAll('.eraser-sym')).forEach((e) => {
     e.addEventListener('click', (event) => {
+        canvas.style.cursor = 'auto';
         if (document.getElementsByClassName('eraser-dropdown')[0].style.display === 'none') {
+            displayNone();
             document.getElementsByClassName('eraser-dropdown')[0].style.display = 'flex';
             return;
         }
-        displayNone();
         document.getElementsByClassName('eraser-dropdown')[0].style.display = 'none';
         event.stopPropagation();
     })
@@ -236,9 +247,10 @@ Array.from(document.querySelectorAll('.eraser-sym')).forEach((e) => {
 
 Array.from(document.querySelectorAll('.eraser-size')).forEach((Element) => {
     Element.addEventListener('click', (event) => {
+        canvas.style.cursor = 'auto';
         addListeners();
         document.getElementsByClassName('fa-bars')[0].style.display = 'block'
-        document.getElementsByClassName('bar-sym')[0].style.background = '#cfcfcf'
+        document.getElementsByClassName('bar-sym')[0].style.background = '#F5E9EB'
         document.getElementsByClassName('bar-sym')[0].style.borderRadius = '100%'
         document.getElementsByClassName('fa-times')[0].style.display = 'none'
         document.getElementsByClassName('side-menu')[0].style.display = 'none';
