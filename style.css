@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    user-select: none;
 }
 
 .container {
@@ -51,10 +52,9 @@ canvas {
 }
 .bar-sym {
     min-height: 50px;
-    min-width: 50px;
+    aspect-ratio: 1/1;
     text-align: center;
     height: 10vh;
-    width: 10vh;
     align-content: center;
     max-width: 80px;
     cursor: pointer;

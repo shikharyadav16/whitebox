@@ -8,10 +8,21 @@ let redoTest = [];
 let drawing = false;
 let lastX = 0;
 let lastY = 0;
+let x, y;
 
 function startDrawing(e) {
+    e.preventDefault();
+    if (e.type.startsWith('touch')) {
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        x = touch.clientX - rect.left;
+        y = touch.clientY - rect.top;
+    } else {
+        x = e.offsetX;
+        y = e.offsetY;
+    }
     drawing = true;
-    [lastX, lastY] = [e.offsetX, e.offsetY]
+    [lastX, lastY] = [x, y]
 
     ctx.beginPath();
     ctx.moveTo(lastX, lastY)
@@ -20,11 +31,20 @@ function startDrawing(e) {
 function draw(e) {
     if (!drawing)
         return;
+    if (e.type.startsWith('touch')) {
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        x = touch.clientX - rect.left;
+        y = touch.clientY - rect.top;
+    } else {
+        x = e.offsetX;
+        y = e.offsetY;
+    }
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
-    ctx.lineTo(e.offsetX, e.offsetY)
+    ctx.lineTo(x, y)
     ctx.stroke();
-    [lastX, lastY] = [e.offsetX, e.offsetY];
+    [lastX, lastY] = [x, y];
 }
 
 function stopDrawing() {
@@ -71,8 +91,9 @@ document.addEventListener('keydown', (e) => {
 
 function addListeners() {
     canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchstart', startDrawing, {passive: false});
     canvas.addEventListener('mousemove', draw)
+    canvas.addEventListener('touchmove', draw, {passive: false});
     canvas.addEventListener('mouseup', stopDrawing)
     canvas.addEventListener('touchend', stopDrawing)
     canvas.addEventListener('mouseout', stopDrawing)
@@ -80,10 +101,12 @@ function addListeners() {
 
 function removeListeners() {
     canvas.removeEventListener('mousedown', startDrawing);
-    canvas.addEventListener('touchstart', startDrawing);
+    canvas.removeEventListener('touchstart', startDrawing);
     canvas.removeEventListener('mousemove', draw)
+    canvas.removeEventListener('touchmove', draw);
+
     canvas.removeEventListener('mouseup', stopDrawing)
-    canvas.addEventListener('touchend', stopDrawing)
+    canvas.removeEventListener('touchend', stopDrawing)
     canvas.removeEventListener('mouseout', stopDrawing)
 }
 
@@ -109,7 +132,7 @@ handleResize();
 let flag = 0;
 let prevColor = 'black';
 
-window.addEventListener('resize',()=> {
+window.addEventListener('resize', () => {
     window.location.reload();
 })
 
